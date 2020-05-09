@@ -4,6 +4,7 @@ Web App utilizing PHP, SQL and XAMPP for a local build to fetch, display, add, e
 Basic HTML, CSS, and JavaScript are used. In addition PHP is used to fetch, sort, add, edit, delete and display the information from the database using SQL and a MySQL database.
 
 XAMPP is used for local deployment. Version used is 5.5.19, an older one but one that was configured to run on the machine already.
+**Only tested on a Windows 10 Machine**
 
 ## Table of Content
 - [Motivation](#motivation)
@@ -66,11 +67,11 @@ This project was motivated by creating an easier way to access already collected
 #### Setup Database
 To setup the database we need to enter the SQL commands through XAMPP's *phpMyAdmin* tool.
 
-1. Database Creation
+**1. Database Creation**
     - With XAMPP installed, open a web browser and navigate to **localhost/phpmyadmin**.
     - You'll see on the left a list of existing databases. Click **New** to create a new database.
     - The *.php* files are configured for a database named *testbowling* but this name can be anything - it just must also be changed in the code.
-2. Table Creation - SQL Statements
+**2. Table Creation - SQL Statements**
 <details><summary>Bowler</summary>
   
   ```
@@ -167,14 +168,73 @@ To setup the database we need to enter the SQL commands through XAMPP's *phpMyAd
 
 **Considering the table dependencies they must be created in this order. Any entries in the database must also follow this order.**
 
+**3. View Creation - SQL Statements**
+
+<details><summary>Biggest Teams</summary>
+  
+  ```
+  CREATE VIEW bigteams AS
+  SELECT Team_name, count(B_id) as 'Number of Members'
+  FROM member_of
+  GROUP BY Team_name
+  ORDER BY count(B_id) DESC
+  ```
+</details>
+<details><summary>Biggest Teams in One Year</summary>
+  
+  ```
+  CREATE VIEW bigteamsyear AS
+  SELECT Team_name, Year, count(B_id) as 'Number of Members'
+  FROM member_of
+  GROUP BY Team_name, Year
+  ORDER BY count(B_id) DESC
+  ```
+</details>
+<details><summary>Bowlers: Top 10 Most Matches Played</summary>
+  
+  ```
+  CREATE VIEW bowlerview1 AS
+  SELECT b.Name, count(c.Date) as 'Number of Matches Played'
+  FROM competed_in as c, bowler as b
+  WHERE b.B_id = c.B_id
+  GROUP BY c.B_id
+  ORDER BY count(c.Date) DESC
+  LIMIT 10
+  ```
+</details>
+<details><summary>Bowlers: Top 10 Average Score</summary>
+  
+  ```
+  CREATE VIEW bowlerview2 AS
+  SELECT b.Name, count(s.Date) as 'Games Played', (s.Game_1 + s.Game_2 + s.Game_3) / 3 AS 'Average Game Score'
+  FROM scores as s, bowler as b
+  WHERE b.B_id = s.B_id
+  GROUP BY s.B_id
+  ORDER BY (s.Game_1 + s.Game_2 + s.Game_3) / 3 DESC
+  LIMIT 10
+  ```
+</details>
 #### Generate Data
 With the database created you may enter your own entries into the database in the case of having real data to keep or if you'd like to do some of your own testing. If you'd like to *generate* a large amount of data just to see the database filled and navigate through the web app read on.
 
 Once you've downloaded the files for this project you'll notice `generator.php`, this is the one we'll use.
 
+**Now for XAMPP to work you must place the project folder in a folder called `/htdocs` in XAMPP**. This is the server root and where it looks for all documents when using the path `localhost/(project folder here)`. So that is exactly what you must do.
 
+  - Move your project folder with all the files into `C:\xampp\htdocs`
+  - Now you should be able to go to `C:\xampp\htdocs\(project folder here)` and see all the files
+  - In your web browser, navigate to `localhost/(project folder here)/generate.php` 
+    + If it's successful you'll see a very simple text/html output on the screen. If there's an error you will also see a very basic output before redirecting to the `error.php` page - just a prettier error display.
+
+This is the only use of `generator.php` - It must be accessed directly and is not connected to the rest of the files included. In other words, you cannot navigate to `generator.php` from any other file nor to any other file from the generator.
 
 #### Open the Web App
+With your data either entered or generated, or if you have no data and want to enter it on the web app itself, you're ready to view the pages.
+
+  - Navigate to `localhost/(project folder here)/index.php` or simply `localhost/(project folder here)` since by default the browser will look for a file named *index* in the folder specified and display it.
+  
+From here you're able to view all Six Tables and navigate easily between them in `index.php`, different parameters are used to designate which table to display and how to sort. The Four Views are built into a separate pages and are accessed by the buttons below the title. These are, as shown above, simply created in the database then referenced by name only from a specific .php file for each view.
 
 ## Credits
-
+- Nick Ray -> Coding the Web App and helping in designing the database
+- Allen Hartig -> The idea, motivation and doing a lot of the heavy lifting on designing the database
