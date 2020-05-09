@@ -6,6 +6,8 @@ Basic HTML, CSS, and JavaScript are used. In addition PHP is used to fetch, sort
 XAMPP is used for local deployment. Version used is 5.5.19, an older one but one that was configured to run on the machine already.
 **Only tested on a Windows 10 Machine**
 
+![Index page of Bowling Database](https://github.com/STLnick/bowlingdb/blob/master/readmeImages/index.png)
+
 ## Table of Content
 - [Motivation](#motivation)
 - [Screenshots](#screenshots)
@@ -59,7 +61,7 @@ This project was motivated by creating an easier way to access already collected
   - This is what we use to run a local server and allow the PHP to run and access our database that we also use XAMPP to configure.
   - A standard download and install procedure here. No special configurations were made to allow it to work on my machine. Once installed simply open the *XAMPP Control Panel* and start Apache, MySQL and Tomcat. That's all you need to get going.
   
-![XAMPP Control Panel](
+![XAMPP Control Panel](https://github.com/STLnick/bowlingdb/blob/master/readmeImages/xampp.png)
 
 - Use your favorite editor for web development. [Brackets](http://brackets.io/) was used along with Chrome Developer Tools to complete this project. I will say Brackets didn't have the best support for PHP, so maybe find a good PHP extenstion for it (and let me know because I couldn't). Or just use your preferred tool that has PHP support. Or don't. I didn't.
 
@@ -71,6 +73,8 @@ To setup the database we need to enter the SQL commands through XAMPP's *phpMyAd
     - With XAMPP installed, open a web browser and navigate to **localhost/phpmyadmin**.
     - You'll see on the left a list of existing databases. Click **New** to create a new database.
     - The *.php* files are configured for a database named *testbowling* but this name can be anything - it just must also be changed in the code.
+    
+![XAMPP phpMyAdmin page](https://github.com/STLnick/bowlingdb/blob/master/readmeImages/phpmyadmin.png)
     
 ---
 
