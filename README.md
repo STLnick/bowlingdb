@@ -10,7 +10,6 @@ XAMPP is used for local deployment. Version used is 5.5.19, an older one but one
 
 ## Table of Content
 - [Motivation](#motivation)
-- [Screenshots](#screenshots)
 - [Tech Used](#tech-used)
 - [Features](#features)
 - [Installation](#installation)
@@ -19,9 +18,6 @@ XAMPP is used for local deployment. Version used is 5.5.19, an older one but one
 
 ## Motivation
 A group project for a Databases course was the initial motivation for finding a project to do. The motivation for the Bowling Database specifically is a group member had loads of spreadsheets with data that was cumbersome to edit and view. An easier way to see the data, enter new data or take out entries as well was needed.
-
-## Screenshots
-
 
 ## Tech Used
 * HTML
