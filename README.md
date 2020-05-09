@@ -71,6 +71,7 @@ To setup the database we need to enter the SQL commands through XAMPP's *phpMyAd
     - With XAMPP installed, open a web browser and navigate to **localhost/phpmyadmin**.
     - You'll see on the left a list of existing databases. Click **New** to create a new database.
     - The *.php* files are configured for a database named *testbowling* but this name can be anything - it just must also be changed in the code.
+    
 **2. Table Creation - SQL Statements**
 <details><summary>Bowler</summary>
   
@@ -214,7 +215,10 @@ To setup the database we need to enter the SQL commands through XAMPP's *phpMyAd
   LIMIT 10
   ```
 </details>
+
 #### Generate Data
+**You MUST have [Faker](https://github.com/fzaninotto/Faker) to generate with `generate.php`. Click the link to go to the page and read how to include it in your project. That is not my work and as such I didn't include it in my repository!**
+
 With the database created you may enter your own entries into the database in the case of having real data to keep or if you'd like to do some of your own testing. If you'd like to *generate* a large amount of data just to see the database filled and navigate through the web app read on.
 
 Once you've downloaded the files for this project you'll notice `generator.php`, this is the one we'll use.
