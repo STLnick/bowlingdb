@@ -59,7 +59,7 @@ This project was motivated by creating an easier way to access already collected
   - This is what we use to run a local server and allow the PHP to run and access our database that we also use XAMPP to configure.
   - A standard download and install procedure here. No special configurations were made to allow it to work on my machine. Once installed simply open the *XAMPP Control Panel* and start Apache, MySQL and Tomcat. That's all you need to get going.
   
-**(PLACE XAMPP SCREENSHOT HERE)**
+![XAMPP Control Panel](
 
 - Use your favorite editor for web development. [Brackets](http://brackets.io/) was used along with Chrome Developer Tools to complete this project. I will say Brackets didn't have the best support for PHP, so maybe find a good PHP extenstion for it (and let me know because I couldn't). Or just use your preferred tool that has PHP support. Or don't. I didn't.
 
@@ -71,6 +71,12 @@ To setup the database we need to enter the SQL commands through XAMPP's *phpMyAd
     - With XAMPP installed, open a web browser and navigate to **localhost/phpmyadmin**.
     - You'll see on the left a list of existing databases. Click **New** to create a new database.
     - The *.php* files are configured for a database named *testbowling* but this name can be anything - it just must also be changed in the code.
+    
+---
+
+To perform the following SQL statements navigate to **localhost/phpmyadmin** just as when creating the database. Once that inital page is open click your database *then* click the **SQL** tab at the top of the page. This is where you'll perform all the statements. To ensure you're targeting the correct database it will say *"Run SQL query/queries on database testbowling:"* - "testbowling" is the name in my database, it should be whichever database you want to target.
+
+---
     
 **2. Table Creation - SQL Statements**
 <details><summary>Bowler</summary>
