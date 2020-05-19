@@ -1,6 +1,8 @@
 # bowlingdb
 Web App utilizing PHP, SQL and XAMPP for a local build to fetch, display, add, edit and delete database entries. Specfically the database is one that contains information of Bowlers, Competitions, Teams, what Team a Bowler was a member of, which Competitions a Bowler competed in and their Scores. There are a few views built in to show an informational collection of the data.
 
+**Unable to host a demo version on GitHub Pages due to this web application being primarily PHP to retrieve, edit, add, or delete data. GitHub Pages only supports static content and as such will not display index.php nor have the functionalities as described.**
+
 Basic HTML, CSS, and JavaScript are used. In addition PHP is used to fetch, sort, add, edit, delete and display the information from the database using SQL and a MySQL database.
 
 XAMPP is used for local deployment. Version used is 5.5.19, an older one but one that was configured to run on the machine already.
